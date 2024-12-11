@@ -37,6 +37,13 @@ const route = useRoute()
         >
           Contact
         </router-link>
+        <router-link 
+          to="/cart" 
+          class="hover:text-blue-300"
+          :class="{ 'text-blue-300': route.name === 'Cart' }"
+        >
+          Cart
+        </router-link>
       </div>
     </div>
   </nav>
