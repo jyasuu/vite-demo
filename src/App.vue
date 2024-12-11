@@ -1,23 +1,32 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import Navbar from './components/Navbar.vue'
+import Footer from './components/Footer.vue'
 </script>
 
 <template>
-  <div class="flex justify-center items-center gap-4 py-8">
-    <a href="https://vite.dev" target="_blank" class="logo-container">
-      <img 
-        src="/vite.svg" 
-        class="h-24 p-6 transition-filter duration-300 hover:drop-shadow-[0_0_2em_#646cffaa]" 
-        alt="Vite logo" 
-      />
-    </a>
-    <a href="https://vuejs.org/" target="_blank" class="logo-container">
-      <img 
-        src="./assets/vue.svg" 
-        class="h-24 p-6 transition-filter duration-300 hover:drop-shadow-[0_0_2em_#42b883aa]" 
-        alt="Vue logo" 
-      />
-    </a>
+  <div class="min-h-screen flex flex-col">
+    <Navbar />
+    
+    <main class="flex-grow container mx-auto px-4 py-8">
+      <router-view v-slot="{ Component }">
+        <transition name="fade" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
+    </main>
+    
+    <Footer />
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
+
+<style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
