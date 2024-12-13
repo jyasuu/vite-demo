@@ -4,7 +4,7 @@ import { storeToRefs } from 'pinia'
 
 const userStore = useUserStore()
 const { user, isLoggedIn } = storeToRefs(userStore)
-const { login, logout, updateProfile } = userStore
+const { login, logout } = userStore
 
 function handleLogin() {
   login({
