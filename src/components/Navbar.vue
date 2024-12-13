@@ -44,6 +44,20 @@ const route = useRoute()
         >
           Cart
         </router-link>
+        <router-link 
+          to="/intro" 
+          class="hover:text-blue-300"
+          :class="{ 'text-blue-300': route.name === 'Intro' }"
+        >
+          Introduction
+        </router-link>
+        <router-link 
+          to="/milestones" 
+          class="hover:text-blue-300"
+          :class="{ 'text-blue-300': route.name === 'Milestones' }"
+        >
+          Milestones
+        </router-link>
       </div>
     </div>
   </nav>
